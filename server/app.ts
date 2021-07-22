@@ -15,7 +15,8 @@ nextApp.prepare().then(async () => {
   const etd = new ETDServer({ config: config });
   await etd.startServer(server);
 
-  app.get('*', (req, res) => {
+  app.all('*', (req, res) => {
     return nextHandler(req, res);
   });
+
 });
